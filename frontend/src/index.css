@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
+/* TailwindCSS base layers */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Root CSS variables for neon-themed colors */
 :root {
   --neon-black: #0a0a0a;
   --neon-orange: #60A5FA;
@@ -11,24 +13,28 @@
   --neon-red: #3B82F6;
 }
 
+/* Default body styling */
 body {
-  background-color: var(--neon-black);
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--neon-black);  /* Set background to dark neon black */
+  color: #fff;                        /* Set text color to white */
+  font-family: 'Inter', sans-serif;     /* Use Inter font */
 }
 
+/* Custom font class for cyber theme */
 .font-cyber {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron', sans-serif;  /* Use Orbitron font */
 }
 
+/* Glass-like panel effect */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);        /* Transparent white */
+  backdrop-filter: blur(10px);                    /* Blurred background */
+  border: 1px solid rgba(255, 255, 255, 0.1);   /* Soft border */
 }
 
+/* Neon glow text effects */
 .neon-glow-orange {
-  text-shadow: 0 0 10px var(--neon-orange),
+  text-shadow: 0 0 10px var(--neon-orange),       
                0 0 20px var(--neon-orange);
 }
 
@@ -42,6 +48,7 @@ body {
                0 0 20px var(--neon-red);
 }
 
+/* Neon glowing border effects */
 .neon-border-orange {
   box-shadow: 0 0 10px var(--neon-orange),
               inset 0 0 10px var(--neon-orange);
@@ -52,21 +59,24 @@ body {
               inset 0 0 10px var(--neon-mint);
 }
 
+/* Grid background with neon orange lines */
 .cyber-grid {
   background-image: 
     linear-gradient(to right, rgba(255, 95, 31, 0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 95, 31, 0.1) 1px, transparent 1px);
-  background-size: 4rem 4rem;
+  background-size: 4rem 4rem;   /* Grid cell size */
 }
 
+/* Styling for a retro terminal look */
 .cyber-terminal {
   font-family: 'Orbitron', monospace;
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--neon-orange);
+  background: rgba(10, 10, 10, 0.9);      /* Semi-transparent black */
+  border: 1px solid var(--neon-orange);     /* Orange border */
   padding: 20px;
-  color: var(--neon-mint);
+  color: var(--neon-mint);                  /* Mint green text */
 }
 
+/* Glitch animation keyframes */
 @keyframes glitch {
   0% {
     transform: translate(0);
@@ -88,11 +98,13 @@ body {
   }
 }
 
+/* Apply glitch effect */
 .glitch-text {
   animation: glitch 3s infinite;
   position: relative;
 }
 
+/* Mint layer behind main glitch text */
 .glitch-text::before,
 .glitch-text::after {
   content: attr(data-text);
@@ -108,6 +120,7 @@ body {
   z-index: -1;
 }
 
+/* Red layer behind both */
 .glitch-text::after {
   color: var(--neon-red);
   z-index: -2;

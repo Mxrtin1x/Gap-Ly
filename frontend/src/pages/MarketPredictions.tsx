@@ -4,28 +4,34 @@ import { TrendingUp, Target, Zap } from 'lucide-react';
 import { useState } from 'react';
 
 export default function MarketPredictions() {
+  // State to store selected industry
   const [selectedIndustry, setSelectedIndustry] = useState('');
+  // State to store fetched prediction data
   const [predictions, setPredictions] = useState<any>(null);
 
+  // Function to handle prediction request
   const handlePrediction = async () => {
+    // Prevent submission if no industry is selected
     if (!selectedIndustry) {
         alert('Please select an industry');
         return;
     }
 
     try {
+        // Send POST request to prediction API
         const response = await fetch('https://ai-market-be.onrender.com/predict-market', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ industry: selectedIndustry }),
         });
 
+        // Handle server errors
         if (!response.ok) {
             throw new Error('Failed to fetch market predictions');
         }
 
         const data = await response.json();
-
+        // Validate and structure the received data
         if (data && typeof data === 'object' && Object.keys(data).length > 0) {
             setPredictions({
                 growthScore: data.growthScore.score,
