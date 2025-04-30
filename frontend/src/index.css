@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-black: #0a0a0a;
+  --neon-orange: #60A5FA;
+  --neon-mint: #3fffaf;
+  --neon-red: #3B82F6;
+}
+
+body {
+  background-color: var(--neon-black);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.font-cyber {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-glow-orange {
+  text-shadow: 0 0 10px var(--neon-orange),
+               0 0 20px var(--neon-orange);
+}
+
+.neon-glow-mint {
+  text-shadow: 0 0 10px var(--neon-mint),
+               0 0 20px var(--neon-mint);
+}
+
+.neon-glow-red {
+  text-shadow: 0 0 10px var(--neon-red),
+               0 0 20px var(--neon-red);
+}
+
+.neon-border-orange {
+  box-shadow: 0 0 10px var(--neon-orange),
+              inset 0 0 10px var(--neon-orange);
+}
+
+.neon-border-mint {
+  box-shadow: 0 0 10px var(--neon-mint),
+              inset 0 0 10px var(--neon-mint);
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 95, 31, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 95, 31, 0.1) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+.cyber-terminal {
+  font-family: 'Orbitron', monospace;
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid var(--neon-orange);
+  padding: 20px;
+  color: var(--neon-mint);
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch-text {
+  animation: glitch 3s infinite;
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  color: var(--neon-mint);
+  z-index: -1;
+}
+
+.glitch-text::after {
+  color: var(--neon-red);
+  z-index: -2;
+}
