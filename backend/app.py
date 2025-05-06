@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask, request, jsonify
 import requests
 import os
@@ -14,7 +16,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-PORT = int(os.getenv("PORT", 5000))
+PORT = int(os.getenv("PORT", 10000))
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 if not GROQ_API_KEY:
