@@ -19,7 +19,7 @@ export default function MarketPredictions() {
 
     try {
         // Send POST request to prediction API
-        const response = await fetch('https://ai-market-be.onrender.com/predict-market', {
+        const response = await fetch('https://gap-ly-backend.onrender.com/predict-market', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ industry: selectedIndustry }),

@@ -29,7 +29,7 @@ export default function Analyze() {
     setIsAnalyzing(true);
   
     try {
-      const response = await fetch('https://ai-market-be.onrender.com/analyze-market', {
+      const response = await fetch('https://gap-ly-backend.onrender.com/analyze-market', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

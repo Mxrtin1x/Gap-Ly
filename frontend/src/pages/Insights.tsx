@@ -112,7 +112,7 @@ export default function Insights() {
     setIsTyping(true);
   
     try {
-      const response = await fetch('https://ai-market-be.onrender.com/ai-market-assistant', {
+      const response = await fetch('https://gap-ly-backend.onrender.com/ai-market-assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -18,7 +18,7 @@ export default function CompetitorAnalysis() {
     
     // Simulate API call
     try {
-      const response = await fetch('https://ai-market-be.onrender.com/analyze-competitor', {
+      const response = await fetch('https://gap-ly-backend.onrender.com/analyze-competitor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ competitorName: competitor }),

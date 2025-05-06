@@ -33,7 +33,7 @@ export default function ContentStrategy() {
     setStrategy(null); // Reset previous results
   
     try {
-      const response = await fetch('https://ai-market-be.onrender.com/generate-content-strategy', {
+      const response = await fetch('https://gap-ly-backend.onrender.com/generate-content-strategy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ businessIdea: niche }),

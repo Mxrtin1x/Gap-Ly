@@ -27,7 +27,7 @@ export default function BusinessStrategy() {
     setIsGenerating(true);
 
     try {
-        const response = await fetch('https://ai-market-be.onrender.com/generate-business-strategy', {
+        const response = await fetch('https://gap-ly-backend.onrender.com/generate-business-strategy', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ businessIdea }),
