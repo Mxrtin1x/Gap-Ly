@@ -32,9 +32,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-cyber text-5xl md:text-7xl font-bold mb-6 neon-glow-orange glitch-text"
-            data-text="AI Market Gap Identifier"
+            data-text="Gap-Ly"
           >
-            AI Market Gap Identifier
+            Gap-Ly
           </motion.h1>
 
           <motion.p
@@ -90,7 +90,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-4xl font-cyber text-center text-cyber-orange mb-16 neon-glow-orange"
           >
-            Powered by Advanced AI
+            Market Gap Identifier Powered by Advanced AI
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
