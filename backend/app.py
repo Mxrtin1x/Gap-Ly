@@ -32,9 +32,12 @@ HEADERS = {
 def simulate_market_trends(depth):
     np.random.seed(42)
     
+    # Base market growth between 5% and 20%
     base_growth = np.random.randint(5, 20) 
     
+    # Variance decreases as the depth increases, simulating more stable predictions for deeper analysis
     variance = max(1, 10 - depth)  
+    # Simulating fluctuations in growth values over 6 periods (e.g., months or quarters)
     fluctuations = np.random.normal(0, variance, 6)
 
     growth_values = [max(base_growth + fluctuation, 0) for fluctuation in fluctuations]
