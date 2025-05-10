@@ -17,7 +17,7 @@ def test_analyze_market_valid(client):
 
 def test_analyze_market_invalid(client):
     response = client.post('/analyze-market', json={
-        "industry": "",
+        "industry": "", 
         "region": "global",
         "depth": "basic"
     })
