@@ -1,8 +1,9 @@
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Form from './Form';  // Assuming Form is a React component
+import Hero from './Hero';  
 
 test('should render the form and accept input', () => {
-  render(<Form />);
+  render(<Hero />);
 
   // Get input element by placeholder text
   const inputElement = screen.getByPlaceholderText(/Enter industry/i);
@@ -13,7 +14,7 @@ test('should render the form and accept input', () => {
 });
 
 test('should display an error when no industry is entered', () => {
-  render(<Form />);
+  render(<Hero />);
 
   // Get submit button and click it
   const submitButton = screen.getByText(/Submit/i);
@@ -23,3 +24,5 @@ test('should display an error when no industry is entered', () => {
   const errorMessage = screen.getByText(/Industry is required/i);
   expect(errorMessage).toBeInTheDocument();
 });
+
+

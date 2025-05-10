@@ -1,0 +1,101 @@
+{
+    "info": {
+        "name": "Gap-Ly API Tests",
+        "description": "Collection of tests for Gap-Ly API endpoints.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Analyze Market - Valid Request",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": "Content type for the request body"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"industry\": \"Technology\", \"region\": \"global\", \"depth\": \"basic\"}"
+                },
+                "url": {
+                    "raw": "http://localhost:5173/analyze-market",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5173",
+                    "path": [
+                        "analyze-market"
+                    ]
+                }
+            },
+            "test": [
+                {
+                    "name": "Status code is 200",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Status code is 200', function() {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test('Response contains predicted_growth', function() {",
+                            "    pm.response.to.have.jsonBody('predicted_growth');",
+                            "});",
+                            "pm.test('Response contains base_growth', function() {",
+                            "    pm.response.to.have.jsonBody('base_growth');",
+                            "});"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Analyze Market - Invalid Request",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": "Content type for the request body"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"industry\": \"\", \"region\": \"global\", \"depth\": \"basic\"}"
+                },
+                "url": {
+                    "raw": "http://localhost:5173/analyze-market",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5173",
+                    "path": [
+                        "analyze-market"
+                    ]
+                }
+            },
+            "test": [
+                {
+                    "name": "Status code is 400",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Status code is 400', function() {",
+                            "    pm.response.to.have.status(400);",
+                            "});",
+                            "pm.test('Response contains error message', function() {",
+                            "    pm.response.to.have.jsonBody('error');",
+                            "    pm.expect(pm.response.json().error).to.eql('Industry is required');",
+                            "});"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
